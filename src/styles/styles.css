@@ -1,0 +1,34 @@
+body{
+    padding: 40px;
+}
+ header{
+     background-color: #084292;
+     height: 100px;
+     padding: 20px;
+     color: white;
+} 
+.tittle{
+    margin-bottom: 20px;
+}
+
+.pending-stasks{
+   margin: 20px 0;
+}
+
+.progress{
+    margin: 7px 0px;
+}
+
+.inputs{
+    height: 20px;
+    width: 50px;
+}
+
+.task-conteiner{
+   height: 70px;
+   width: 50%;
+   margin-top: 30px;
+   border-radius: 20px;
+   border: 2px solid black;
+   padding: 0px 90px;
+}
