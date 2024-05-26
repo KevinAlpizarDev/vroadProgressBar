@@ -10,25 +10,70 @@ let firsInput = document.getElementById("first-input")
 let secondInput = document.getElementById("second-input")
 let thirdInput = document.getElementById("third-input")
 // SPAN VARIABLES
-let firstSpan: HTMLElement | null = document.getElementById("first-span")
+let firstSpan= document.getElementById("first-span")
 let secondSpan = document.getElementById("second-span")
 let thirdSpan = document.getElementById("third-span")
 
+
+//TEXTO
+
+
 // FUNCION 1
-let firsInputValue: number | string = 0
+let firsInputValue: number | string 
 let mainValue: number | string = 0
+let subTaskToComplete1 = 5
+let subTaskToComplete2 = 10
 
-firsInput!.addEventListener('change', (event) => {
-  firsInputValue = (event.target as HTMLInputElement).value
-  // console.log(firsInputValue.value) // No error because 'value' exists on 'HTMLInputElement'.
-  function task1(id: HTMLElement, subTaskCompleted1: number, subTaskToComplete1: number) {
-    firsInputValue = (subTaskCompleted1 / subTaskToComplete1 * 100) // Las subtareas realizadas, entre  el numero de subtareas existentes
-    return id!.style.width = firsInputValue + "%"
-  }
-  task1(firstBar, Number(firsInputValue), 6)
-  // console.log(firsInputValue)
-})
 
+
+// ejecution()
+let inputValue: string
+///////////////////////////////////////////////////
+const inputValueReturn = (wichOne: HTMLElement| null) => {
+  wichOne!.addEventListener("change", (event) => {
+    const inputValue = (event.target as HTMLInputElement).value;
+    const convertedInputValue = Number(inputValue)
+    console.log(convertedInputValue, typeof convertedInputValue);
+    
+    // Optionally, you can perform some task with the input value here
+    // If you want to update the bar immediately, you can call the task function here
+    ProgressBar(firstBar, convertedInputValue, subTaskToComplete1);
+    return inputValue; // Return the input value
+  });
+};
+///////////////////////////////////////////////////
+const inputValueRetur2 = (wichOne: HTMLElement| null) => {
+  wichOne!.addEventListener("change", (event) => {
+    const inputValue = (event.target as HTMLInputElement).value;
+    const convertedInputValue = Number(inputValue)
+    console.log(convertedInputValue, typeof convertedInputValue);
+    
+    // Optionally, you can perform some task with the input value here
+    // If you want to update the bar immediately, you can call the task function here
+    ProgressBar(secondBar!, convertedInputValue, subTaskToComplete2);
+    return inputValue; // Return the input value
+  });
+};
+// Define a separate function to update the progress bar
+function ProgressBar(id: HTMLElement, subTaskCompleted1: number, subTaskToComplete1: number) {
+  const progress = (subTaskCompleted1 / subTaskToComplete1) * 100;
+  id.style.width = progress + "%";
+}
+// Call inputValueReturn to set up the event listener
+inputValueReturn(firsInput);
+inputValueRetur2(secondInput);
+// inputValueReturn(thirdInput);
+//////////////////////////////////////////////////////////////////
+
+// if (Event != undefined) {
+  
+//   console.log(    firsInputValue = (event.target as HTMLInputElement).value);
+// }
+
+  // Recupera el valor almacenado de subTaskToComplete1
+
+  
+  // Verifica si el valor recuperado no es nulo ni indefinido antes de asignarlo a firstSpan.innerHTML
 
 
 // let secondInputValue: number | string = 0
@@ -56,6 +101,16 @@ firsInput!.addEventListener('change', (event) => {
 // console.log(helper(Number(firsInputValue), 6));
 // // // FUNCION 2
 // let secondInputValue: number | string = 0
+// let subTaskCompleted2 = 10
+// let hola2: string | number= String(subTaskCompleted2) 
+
+
+// if (secondSpan !== undefined && secondSpan !== null) {
+//   secondSpan.innerHTML = hola2;
+// }
+// //  el
+
+
 // // firsInput.addEventListener("input");
 // secondInput!.addEventListener('change', (event) => {
 //   secondInputValue = (event.target as HTMLInputElement).value
@@ -63,19 +118,20 @@ firsInput!.addEventListener('change', (event) => {
 //   function task2(subTaskCompleted1: number, subTaskToComplete1: number) {
 //     secondInputValue = (subTaskCompleted1 / subTaskToComplete1 * 100) // Las subtareas realizadas, entre  el numero de subtareas existentes
 //     return secondBar!.style.width = secondInputValue + "%"
-//   } task2(Number(secondInputValue), 2)
+//   } task2(Number(secondInputValue), 10)
 // })
-// // FUNCION 3
-let thirdInputValue: number | string = 0
-// firsInput.addEventListener("input");
-thirdInput!.addEventListener('change', (event) => {
-  thirdInputValue = (event.target as HTMLInputElement).value
-  // console.log(firsInputValue.value) // No error because 'value' exists on 'HTMLInputElement'.
-  function task3(subTaskCompleted1: number, subTaskToComplete1: number) {
-    thirdInputValue = (subTaskCompleted1 / subTaskToComplete1 * 100) // Las subtareas realizadas, entre  el numero de subtareas existentes
-    return thirdBar!.style.width = thirdInputValue + "%"
-  } task3(Number(thirdInputValue), 3)
-})
+// // // FUNCION 3
+// let thirdInputValue: number | string = 0
+// // firsInput.addEventListener("input");
+// thirdInput!.addEventListener('change', (event) => {
+//   thirdInputValue = (event.target as HTMLInputElement).value
+//   // console.log(firsInputValue.value) // No error because 'value' exists on 'HTMLInputElement'.
+//   function task3(subTaskCompleted1: number, subTaskToComplete1: number) {
+//     thirdInputValue = (subTaskCompleted1 / subTaskToComplete1 * 100) // Las subtareas realizadas, entre  el numero de subtareas existentes
+
+//     return thirdBar!.style.width = thirdInputValue + "%"
+//   } task3(Number(thirdInputValue), subTaskCompleted2)
+// })
 
 
 // let mainValue: number | string = 0;
