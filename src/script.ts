@@ -2,8 +2,8 @@
 // PROGRESS VARIABLES
 let mainBar = document.getElementById("main-bar")
 let firstBar = document.getElementById("first-bar")!
-let secondBar = document.getElementById("second-bar")
-let thirdBar = document.getElementById("third-bar")
+let secondBar = document.getElementById("second-bar")!
+let thirdBar = document.getElementById("third-bar")!
 // INPUTS VARIABLES
 
 let firsInput = document.getElementById("first-input")
@@ -21,50 +21,58 @@ let thirdSpan = document.getElementById("third-span")
 // FUNCION 1
 let firsInputValue: number | string 
 let mainValue: number | string = 0
-let subTaskToComplete1 = 5
-let subTaskToComplete2 = 10
+// let subTaskToComplete1 = 5
+// let subTaskToComplete2 = 10
 
 
 
 // ejecution()
 let inputValue: string
 ///////////////////////////////////////////////////
-const inputValueReturn = (wichOne: HTMLElement| null) => {
+// const inputValueReturn = (
+//     wichOne: HTMLElement| null,
+//     subtaskforComplete: number,
+//     nameBar: HTMLElement) =>  {
+//     wichOne!.addEventListener("change", (event) => {
+//     const inputValue = (event.target as HTMLInputElement).value;
+//     const convertedInputValue = Number(inputValue)
+//     // Optionally, you can perform some task with the input value here
+//     // If you want to update the bar immediately, you can call the task function here
+//     const ProgressBar = (id: HTMLElement, subTaskCompleted1: number, subTaskToComplete1: number) => {
+//     const progress = (subTaskCompleted1 / subTaskToComplete1) * 100;
+//     id.style.width = progress + "%";
+//     }
+//     ProgressBar(nameBar, convertedInputValue, subtaskforComplete);
+//   //  return inputValue; // Return the input value
+//   });
+// };
+// // Call inputValueReturn to set up the event listener
+// inputValueReturn(firsInput, 5, firstBar);
+// inputValueReturn(secondInput, 10, secondBar);
+// inputValueReturn(thirdInput, 15, thirdBar);
+//////////////////////////////////////////////////////////////////
+const inputValueReturn = (
+  wichOne: HTMLElement| null,
+  subtaskforComplete: number,
+  nameBar: HTMLElement) =>  {
   wichOne!.addEventListener("change", (event) => {
-    const inputValue = (event.target as HTMLInputElement).value;
-    const convertedInputValue = Number(inputValue)
-    console.log(convertedInputValue, typeof convertedInputValue);
-    
-    // Optionally, you can perform some task with the input value here
-    // If you want to update the bar immediately, you can call the task function here
-    ProgressBar(firstBar, convertedInputValue, subTaskToComplete1);
-    return inputValue; // Return the input value
-  });
-};
-///////////////////////////////////////////////////
-const inputValueRetur2 = (wichOne: HTMLElement| null) => {
-  wichOne!.addEventListener("change", (event) => {
-    const inputValue = (event.target as HTMLInputElement).value;
-    const convertedInputValue = Number(inputValue)
-    console.log(convertedInputValue, typeof convertedInputValue);
-    
-    // Optionally, you can perform some task with the input value here
-    // If you want to update the bar immediately, you can call the task function here
-    ProgressBar(secondBar!, convertedInputValue, subTaskToComplete2);
-    return inputValue; // Return the input value
-  });
-};
-// Define a separate function to update the progress bar
-function ProgressBar(id: HTMLElement, subTaskCompleted1: number, subTaskToComplete1: number) {
+  const inputValue = (event.target as HTMLInputElement).value;
+  const convertedInputValue = Number(inputValue)
+  // Optionally, you can perform some task with the input value here
+  // If you want to update the bar immediately, you can call the task function here
+  const ProgressBar = (id: HTMLElement, subTaskCompleted1: number, subTaskToComplete1: number) => {
   const progress = (subTaskCompleted1 / subTaskToComplete1) * 100;
   id.style.width = progress + "%";
-}
+  }
+  ProgressBar(nameBar, convertedInputValue, subtaskforComplete);
+//  return inputValue; // Return the input value
+});
+};
 // Call inputValueReturn to set up the event listener
-inputValueReturn(firsInput);
-inputValueRetur2(secondInput);
-// inputValueReturn(thirdInput);
-//////////////////////////////////////////////////////////////////
-
+inputValueReturn(firsInput, 5, firstBar);
+inputValueReturn(secondInput, 10, secondBar);
+inputValueReturn(thirdInput, 15, thirdBar);
+//TO CHANGE
 // if (Event != undefined) {
   
 //   console.log(    firsInputValue = (event.target as HTMLInputElement).value);
